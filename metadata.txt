@@ -31,3 +31,10 @@ gsw - measured stomatal conductance (mmol m-2s-1)
 E_apparent - measured transpiration rate (mmol m-2s-1)
 soil - Volumetric Soil Moisture Content (m3 m-3)
 Kmax - Maximum hydraulic conductance (kg hr-1 MPa-1 m-2)
+b - vulnerability curve parameter
+c - vulnerability curve parameter
+Vmax25 - Maximum Carboxylation rate at 25 degree Celcius (umol s-1 m-2)
+Jmax25 - Maximum electron transport rate at 25 degree Celsius (umol s-1 m-2)
+r - CO2 compensation point rate at 25 degree Celcius (Pa)
+XRI - Xylem recovery index
+LABA - Leaf area to basal area ratio m2 m-2
