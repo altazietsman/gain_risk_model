@@ -1,6 +1,6 @@
 #input parameters
 
-carbmaxs = function(b,c,LABA,vmax25,jmax25,r,dfe) {
+carbmaxs = function(dfe) {
   
   enddf = length(dfe[[1]])
   GW = list()
@@ -24,6 +24,12 @@ carbmaxs = function(b,c,LABA,vmax25,jmax25,r,dfe) {
     P = dfe[[7]][i] #soil pressure
     Tleaf = dfe[[9]][i] #leaf temperature in degree celcius
     kmax = dfe[[13]][i] #kmax optimized over time
+    b = dfe[[14]][i] #vulnerability curve parameter
+    c = dfe[[15]][i] #vulnerability curve parameter
+    vmax25 = dfe[[16]][i] 
+    jmax25 = dfe[[17]][i] 
+    r = dfe[[18]][i] #CO2 compensation point rate at 25 degree 
+    LABA = dfe[[20]][i] #leaf area: basel area ratio
     
     ##Hydraulic cost model
     
