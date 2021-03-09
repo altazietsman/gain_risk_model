@@ -1,0 +1,33 @@
+#file names
+
+G1 - E.grandis X camaldulensis plant 1
+G2 - E.grandis X camaldulensis plant 2
+G3 - E.grandis X camaldulensis plant 3
+G4 - E.grandis X camaldulensis plant 4
+G5 - E.grandis X camaldulensis plant 5
+G6 - E.grandis X camaldulensis plant 6
+
+U1 - E. urophylla X grandis plant 1
+U2 - E. urophylla X grandis plant 2
+U3 - E. urophylla X grandis plant 3
+U4 - E. urophylla X grandis plant 4
+U5 - E. urophylla X grandis plant 5
+U6 - E. urophylla X grandis plant 6
+
+
+
+#Data table paramaters
+
+Date - daily date
+Time - Time expressed in hours
+solar - incoming solar irradiance (W m-2)
+temp - air temperatyre (Celcius)
+wind - wind speed (m s-1)
+RH - relative humidity (%)
+soil_pressure - soil water pressure (MPa)
+P_atm - atmospheric pressure (kPa)
+Tleaf - leaf temperature (Celcius)
+gsw - measured stomatal conductance (mmol m-2s-1)
+E_apparent - measured transpiration rate (mmol m-2s-1)
+soil - Volumetric Soil Moisture Content (m3 m-3)
+Kmax - Maximum hydraulic conductance (kg hr-1 MPa-1 m-2)
