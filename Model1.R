@@ -22,7 +22,7 @@ carbmax = function(dfe) {
     time = dfe[[2]][i] #read time as hours (12h)
     P = dfe[[7]][i] #soil presure 
     Tleaf = dfe[[9]][i] #leaf temperature in degree celcius
-    kmax = dfe[[13]][i] #kamx optimized over time
+    kmax = dfe[[13]][i] #kmax
     b = dfe[[14]][i] #vulnerability curve parameter
     c = dfe[[15]][i] #vulnerability curve parameter
     vmax25 = dfe[[16]][i] 
@@ -60,6 +60,7 @@ carbmax = function(dfe) {
       P = dfe[[7]][i]
       wbr = kmax*(exp(-1*(P/b)^c)) # weibull function
       kcrit = kmax*(exp(-1*(Pcrit/b)^c)) #kcrit at P99
+      kmax = max(wbr) #instantanous kmax
       PLC = (kmax - wbr)/(kmax - kcrit)
       l = list() #initialize empty list for PLC
       pl = list() #initialize empty list for soil presures
@@ -69,8 +70,7 @@ carbmax = function(dfe) {
       
       while (P <=Pcrit){
         wbr = kmax*(exp(-1*(P/b)^c))
-        PLC = (kmax - wbr)/(kmax - kcrit)
-        #PLC = 1 - wbr/kmax
+        PLC = 1 - wbr/kmax
         l = c(l,PLC)
         wbrl = c(wbrl, wbr)
         pl = c(pl,P)
@@ -90,6 +90,7 @@ carbmax = function(dfe) {
       P = dfe[[7]][i]
       wbr = kmax*(exp(-1*(P/b)^c)) # weibull function
       kcrit = kmax*(exp(-1*(Pcrit/b)^c)) #kcrit at P99
+      kmax = max(wbr) #instantanous kmax
       PLC = (kmax - wbr)/(kmax - kcrit)
       l = list() #initialize empty list for PLC
       pl = list() #initialize empty list for soil presures
@@ -99,7 +100,7 @@ carbmax = function(dfe) {
       
       while (P <=Pcrit){
         wbr = kmax*(exp(-1*(P/b)^c))
-        PLC = (kmax - wbr)/(kmax - kcrit)
+        PLC = 1 - wbr/kmax
         l = c(l,PLC)
         wbrl = c(wbrl, wbr)
         pl = c(pl,P)
@@ -130,6 +131,7 @@ carbmax = function(dfe) {
       P = dfe[[7]][i]
       wbr = kmax*(exp(-1*(P/b)^c)) # weibull function
       kcrit = kmax*(exp(-1*(Pcrit/b)^c)) #kcrit at P99
+      kmax = max(wbr) #instantanous kmax
       PLC = (kmax - wbr)/(kmax - kcrit)
       l = list() #initialize empty list for PLC
       pl = list() #initialize empty list for soil presures
@@ -139,7 +141,7 @@ carbmax = function(dfe) {
       
       while (P <=Pcrit){
         wbr = kmax*(exp(-1*(P/b)^c))
-        PLC = (kmax - wbr)/(kmax - kcrit)
+        PLC = (1 - wbr/kmax)
         l = c(l,PLC)
         wbrl = c(wbrl, wbr)
         pl = c(pl,P)
@@ -260,12 +262,7 @@ carbmax = function(dfe) {
   colnames(results)[4] = 'Cpresure'
   
   
-  resultstest <<- results #move results df to global variable
+  results <<- results #move results df to global variable
   
   
 }
-
-
-
-
-
