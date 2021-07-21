@@ -12,7 +12,7 @@ carbmax = function(dfe) {
   
   for (i in 1:enddf) {
     
- 
+    
     airtemp = dfe[[4]][i] #airtemperature in degree celcius
     RH = dfe[[6]][i] #humidity in %
     patm = dfe[[8]][i] #atmospheric presure in kpa
@@ -59,7 +59,8 @@ carbmax = function(dfe) {
       #weibull curve from P to Pcrit
       P = dfe[[7]][i]
       wbr = kmax*(exp(-1*(P/b)^c)) # weibull function
-      PLC = 1 - wbr/kmax #PLC function
+      kcrit = kmax*(exp(-1*(Pcrit/b)^c)) #kcrit at P99
+      PLC = (kmax - wbr)/(kmax - kcrit)
       l = list() #initialize empty list for PLC
       pl = list() #initialize empty list for soil presures
       wbrl = list() #initialize empty list for k
@@ -68,7 +69,8 @@ carbmax = function(dfe) {
       
       while (P <=Pcrit){
         wbr = kmax*(exp(-1*(P/b)^c))
-        PLC = 1 - wbr/kmax
+        PLC = (kmax - wbr)/(kmax - kcrit)
+        #PLC = 1 - wbr/kmax
         l = c(l,PLC)
         wbrl = c(wbrl, wbr)
         pl = c(pl,P)
@@ -87,7 +89,8 @@ carbmax = function(dfe) {
       #weibull curve from P to Pcrit
       P = dfe[[7]][i]
       wbr = kmax*(exp(-1*(P/b)^c)) # weibull function
-      PLC = 1 - wbr/kmax #PLC function
+      kcrit = kmax*(exp(-1*(Pcrit/b)^c)) #kcrit at P99
+      PLC = (kmax - wbr)/(kmax - kcrit)
       l = list() #initialize empty list for PLC
       pl = list() #initialize empty list for soil presures
       wbrl = list() #initialize empty list for k
@@ -96,7 +99,7 @@ carbmax = function(dfe) {
       
       while (P <=Pcrit){
         wbr = kmax*(exp(-1*(P/b)^c))
-        PLC = 1 - wbr/kmax
+        PLC = (kmax - wbr)/(kmax - kcrit)
         l = c(l,PLC)
         wbrl = c(wbrl, wbr)
         pl = c(pl,P)
@@ -126,7 +129,8 @@ carbmax = function(dfe) {
       #weibull curve from P to Pcrit
       P = dfe[[7]][i]
       wbr = kmax*(exp(-1*(P/b)^c)) # weibull function
-      PLC = 1 - wbr/kmax #PLC function
+      kcrit = kmax*(exp(-1*(Pcrit/b)^c)) #kcrit at P99
+      PLC = (kmax - wbr)/(kmax - kcrit)
       l = list() #initialize empty list for PLC
       pl = list() #initialize empty list for soil presures
       wbrl = list() #initialize empty list for k
@@ -135,7 +139,7 @@ carbmax = function(dfe) {
       
       while (P <=Pcrit){
         wbr = kmax*(exp(-1*(P/b)^c))
-        PLC = 1 - wbr/kmax
+        PLC = (kmax - wbr)/(kmax - kcrit)
         l = c(l,PLC)
         wbrl = c(wbrl, wbr)
         pl = c(pl,P)
@@ -256,7 +260,7 @@ carbmax = function(dfe) {
   colnames(results)[4] = 'Cpresure'
   
   
-  results <<- results #move results df to global variable
+  resultstest <<- results #move results df to global variable
   
   
 }

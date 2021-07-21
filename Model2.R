@@ -1,6 +1,6 @@
 #input parameters
 
-carbmaxs = function(dfe) {
+carbmax = function(dfe) {
   
   enddf = length(dfe[[1]])
   GW = list()
@@ -13,7 +13,7 @@ carbmaxs = function(dfe) {
   
   for (i in 1:enddf) {
     
-
+    
     airtemp = dfe[[4]][i] #airtemperature in degree celcius
     RH = dfe[[6]][i] #humidity in %
     patm = dfe[[8]][i] #atmospheric presure in kpa
@@ -52,7 +52,8 @@ carbmaxs = function(dfe) {
     #get new PLC based on soil P value
     #weibull curve from P to Pcrit
     wbr = kmax*(exp(-1*(P/b)^c)) # weibull function
-    PLC = 1 - wbr/kmax #PLC function
+    kcrit = kmax*(exp(-1*(Pcrit/b)^c)) #kcrit at P99
+    PLC = (kmax - wbr)/(kmax - kcrit)
     l = list() #initialize empty list for PLC
     pl = list() #initialize empty list for soil presures
     wbrl = list() #initialize empty list for k
@@ -61,7 +62,7 @@ carbmaxs = function(dfe) {
     
     while (P <=Pcrit){
       wbr = kmax*(exp(-1*(P/b)^c))
-      PLC = 1 - wbr/kmax
+      PLC = (kmax - wbr)/(kmax - kcrit)
       l = c(l,PLC)
       wbrl = c(wbrl, wbr)
       pl = c(pl,P)
@@ -90,7 +91,7 @@ carbmaxs = function(dfe) {
     #Assimilation gain model
     ca = 40 #atmospheric CO2 partial presure in kpa
     oa = 21000 #atmospheric O2 partial presure in kpa
-
+    
     satvp = 0.61365*exp((17.502*Tleaf)/(240.97+Tleaf)) # Buck 1981
     
     
@@ -183,7 +184,7 @@ carbmaxs = function(dfe) {
   colnames(results)[2] = 'E'
   colnames(results)[3] = 'An'
   colnames(results)[4] = 'Cpresure'
-
+  
   
   results <<- results #move results df to global variable
   
