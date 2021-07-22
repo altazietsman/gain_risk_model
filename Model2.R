@@ -53,8 +53,8 @@ carbmax = function(dfe) {
     #weibull curve from P to Pcrit
     wbr = kmax*(exp(-1*(P/b)^c)) # weibull function
     kcrit = kmax*(exp(-1*(Pcrit/b)^c)) #kcrit at P99
-    kmax = max(wbr) #instantanous kmax
-    PLC = (kmax - wbr)/(kmax - kcrit)
+    kc = max(wbr) #instantanous kmax
+    PLC = (kc - wbr)/(kc - kcrit)
     l = list() #initialize empty list for PLC
     pl = list() #initialize empty list for soil presures
     wbrl = list() #initialize empty list for k
