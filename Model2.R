@@ -23,13 +23,13 @@ carbmax = function(dfe) {
     time = dfe[[2]][i] #read time as hours (12h)
     P = dfe[[7]][i] #soil pressure
     Tleaf = dfe[[9]][i] #leaf temperature in degree celcius
-    kmax = dfe[[13]][i] #kmax 
-    b = dfe[[14]][i] #vulnerability curve parameter
-    c = dfe[[15]][i] #vulnerability curve parameter
-    vmax25 = dfe[[16]][i] 
-    jmax25 = dfe[[17]][i] 
-    r = dfe[[18]][i] #CO2 compensation point rate at 25 degree 
-    LABA = dfe[[20]][i] #leaf area: basel area ratio
+    kmax = dfe[[10]][i] #kmax 
+    b = dfe[[11]][i] #vulnerability curve parameter
+    c = dfe[[12]][i] #vulnerability curve parameter
+    vmax25 = dfe[[13]][i] 
+    jmax25 = dfe[[14]][i] 
+    r = dfe[[15]][i] #CO2 compensation point rate at 25 degree 
+    LABA = dfe[[17]][i] #leaf area: basel area ratio
     
     ##Hydraulic cost model
     

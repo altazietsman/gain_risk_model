@@ -9,4 +9,4 @@ Both models are written as a function. Please note that functions were not writt
 
 ## Data 
 
-Includes dataframes of input and measured variables per plant. Please see metadata.txt for information on file names and dataframe variables. 
+Includes an example dataframe of input variables. Please see metadata.txt for information on file names and dataframe variables. 
