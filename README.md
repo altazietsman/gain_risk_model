@@ -4,7 +4,7 @@ This repository includes the gain-risk model to model stomatal conductance as we
 
 ## Models
 
-There are two versions of the model available: Model1.R includes hydraulic limitation and Model2.R does not include a dynamic change in hydraulic limitation. 
+There are two versions of the model available: Model1.R includes a delayed/reduced hydraulic recovery and Model2.R does not. 
 Both models are written as a function. Please note that functions were not written for publication.
 
 ## Data 
