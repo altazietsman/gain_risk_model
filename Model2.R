@@ -140,7 +140,7 @@ carbmax = function(dfe) {
       An = 0
       Ag = 0.1
       while (Ag > An) {
-        jc =(df$vmax[i]*(ci-r))/(ci+df$kc[i]*(oa/df$ko[i]))-df$resp[i]
+        jc =(df$vmax[i]*(ci-r))/(ci+df$kc[i]*(oa/df$ko[i]))
         j =(qe*par+df$jmax[i]-((((qe*par+df$jmax[i])^2)-
                                   (par*df$jmax[i]*cc*qe*4))^0.5))/(2*cc)
         je = (j/4)*((ci-df$r[i])/(ci+2*df$r[i]))
